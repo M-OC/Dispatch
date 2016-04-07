@@ -1,7 +1,7 @@
-var path = require('path');
+const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
-const TARGET = process.env.npm_lifecycle_event;
+const target = process.env.npm_lifecycle_event;
 
 const endpoints = {
 	client: path.join(__dirname, 'Client'),
@@ -12,13 +12,28 @@ const common = {
 	entry: {
 		app: endpoints.build
 	},
+	resolve: {
+		extensions: ['', '.js', '.jsx']
+	},
 	output: {
 		path: endpoints.client,
 		filename: 'app.js'
+	},
+	module: {
+		loaders: [{
+			test: /\.css$/,
+			loaders: ['style','css'],
+			include: endpoints.build
+		},
+		{
+			test: /\.jsx?$/,
+			loaders: ['babel?cacheDirectory'],
+			include: endpoints.build
+		}]
 	}
 };
 
-if (TARGET === 'start' || !TARGET) {
+if (target === 'start' || !target) {
   module.exports = merge(common, {
   	devServer: {
   		contentBase: endpoints.client,
@@ -34,6 +49,6 @@ if (TARGET === 'start' || !TARGET) {
   });
 }
 
-if (TARGET === 'build') {
+if (target === 'build') {
   module.exports = merge(common, {});
 }
