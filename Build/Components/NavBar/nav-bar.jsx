@@ -1,5 +1,5 @@
-import React from 'react';
-import NavBarIcon from './nav-bar-icon.jsx';
+import React from 'react'
+import NavBarIcon from './nav-bar-icon.jsx'
 
 var styling = {
 	backgroundColor: "#8cf",

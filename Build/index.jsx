@@ -1,7 +1,9 @@
-import 'normalize.css';
-import './styles.css';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Root from './Components/Root.jsx';
+import 'normalize.css'
+import './styles.css'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
+import Store from './Store/store.js'
+import Root from './Components/Root.jsx'
 
-ReactDOM.render(<Root/>, document.getElementById('root'));
+ReactDOM.render(<Provider store={Store}><Root/></Provider>, document.getElementById('root'));
