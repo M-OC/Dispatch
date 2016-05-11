@@ -22,8 +22,7 @@ const common = {
 	module: {
 		loaders: [{
 			test: /\.css$/,
-			loaders: ['style','css'],
-			include: endpoints.build
+			loaders: ['style','css']
 		},
 		{
 			test: /\.jsx?$/,
