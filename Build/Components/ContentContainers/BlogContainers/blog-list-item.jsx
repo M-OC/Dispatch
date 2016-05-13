@@ -1,4 +1,5 @@
 import React from 'react'
+import Radium from 'radium'
 
 var styles = {
 	main: {
@@ -10,10 +11,15 @@ var styles = {
 		flexWrap: "wrap",
 		alignItems: "center",
 		justifyContent: "space-between",
-		alignContent: "space-between"
+		alignContent: "space-between",
+
+		":hover": {
+			backgroundColor: "#bef"
+		}
 	},
 	textContainer: {
-		flexGrow: "2"
+		flex: "2 1",
+		margin: "0 1.5em"
 	},
 	text: {
 		margin: ".5em 0"
@@ -28,7 +34,7 @@ var styles = {
 	}
 }
 
-export default class BlogListItem extends React.Component {
+/*export default*/ class BlogListItem extends React.Component {
 	constructor (props) {
 		super(props)
 	}
@@ -37,7 +43,7 @@ export default class BlogListItem extends React.Component {
 		return (
 			<div style={styles.main}>
 				<img style={styles.img} src={this.props.img}/>
-				<div>
+				<div style={styles.textContainer}>
 					<h2 style={styles.text}>
 						{this.props.title}
 					</h2>
@@ -52,3 +58,7 @@ export default class BlogListItem extends React.Component {
 		)
 	}
 }
+
+export default Radium(BlogListItem);
+
+

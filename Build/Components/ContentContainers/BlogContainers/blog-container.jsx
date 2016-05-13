@@ -4,20 +4,23 @@ import {map} from 'lodash'
 
 
 const blogEntries = [{
+	id: 'ab',
 	title: 'A fake title1',
 	subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
 	date: '5/10/1022',
-	img: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Male_gorilla_in_SF_zoo.jpg'
+	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 },{
+	id: 'bc',
 	title: 'A fake title2',
 	subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
 	date: '10/20/3000',
-	img: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Male_gorilla_in_SF_zoo.jpg'
+	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 },{
+	id: 'cd',
 	title: 'A fake title3',
 	subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
 	date: '10/20/3000',
-	img: 'https://upload.wikimedia.org/wikipedia/commons/5/50/Male_gorilla_in_SF_zoo.jpg'
+	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 }];
 
 var styles = {
@@ -30,7 +33,7 @@ export default class BlogContainer extends React.Component {
 		<div style={styles}>
 			{map(blogEntries, function(entry) {
 				return (
-				<BlogListItem title={entry.title} subtitle={entry.subtitle} date={entry.date} img={entry.img}/>
+				<BlogListItem key={entry.id} title={entry.title} subtitle={entry.subtitle} date={entry.date} img={entry.img}/>
 				)
 			})}
 		</div>
