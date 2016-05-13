@@ -1,4 +1,5 @@
 import React from 'react'
+import BlogContainer from './BlogContainers/blog-container.jsx'
 
 var styling = {
 	backgroundColor: "white",
@@ -12,7 +13,7 @@ var styling = {
 export default () => {
 	return (
 		<div style={styling}>
-			Some content
+			<BlogContainer/>
 		</div>
 	)
 }
