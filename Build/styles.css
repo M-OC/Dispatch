@@ -2,3 +2,15 @@ body {
 	padding: 0em 8em;
   background-color: #eef;
 }
+
+@media (max-width: 850px) {
+	body {
+		padding: 2em;	
+	}
+}
+
+@media (max-width: 600px) {
+	body {
+		padding: 0;
+	}
+}

@@ -18,7 +18,8 @@ var styles = {
 		},
 
 		"@media (max-width: 850px)": {
-			flexDirection: "column"
+			flexDirection: "column",
+			margin: ".5em 0"
 		}
 	},
 	textContainer: {
