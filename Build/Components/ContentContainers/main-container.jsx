@@ -1,6 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 import BlogContainer from './BlogContainers/blog-container.jsx'
+import ProjectContainer from './ProjectContainers/project-container.jsx'
 
 var styling = {
 	backgroundColor: "white",
@@ -17,7 +18,8 @@ var styling = {
 var MainContainer = () => {
 	return (
 		<div style={styling}>
-			<BlogContainer/>
+			{/*<BlogContainer/>*/}
+			<ProjectContainer/>
 		</div>
 	)
 }
