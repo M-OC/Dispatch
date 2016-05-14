@@ -15,11 +15,18 @@ var styles = {
 
 		":hover": {
 			backgroundColor: "#bef"
+		},
+
+		"@media (max-width: 850px)": {
+			flexDirection: "column"
 		}
 	},
 	textContainer: {
 		flex: "2 1",
-		margin: "0 1.5em"
+		margin: "0 1.5em",
+		"@media (max-width: 850px)": {
+			margin: "auto"
+		}
 	},
 	text: {
 		margin: ".5em 0"
@@ -30,11 +37,14 @@ var styles = {
 	},
 	img: {
 		maxWidth: "8em",
-		height: "auto"
+		height: "auto",
+		"@media (max-width: 850px)": {
+			display: "none"
+		}
 	}
 }
 
-/*export default*/ class BlogListItem extends React.Component {
+class BlogListItem extends React.Component {
 	constructor (props) {
 		super(props)
 	}
