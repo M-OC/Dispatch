@@ -18,6 +18,7 @@ var styles = {
 		},
 
 		"@media (max-width: 850px)": {
+			padding: ".25em 2em",
 			flexDirection: "column",
 			margin: ".5em 0"
 		}
