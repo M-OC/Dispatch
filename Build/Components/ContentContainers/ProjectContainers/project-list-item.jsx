@@ -1,10 +1,11 @@
 import React from 'react'
 import Radium from 'radium'
+import {Link} from 'react-router'
 
 var styles = {
 	main: {
 		margin: "1em 1em",
-		padding: "0",
+		padding: "0, 2em",
 		backgroundColor: "#8cf",
 		display: "flex",
 		flexDirection: "row",
@@ -47,6 +48,8 @@ var styles = {
 	}
 }
 
+var RadiumLink = Radium(Link);
+
 class ProjectListItem extends React.Component {
 	constructor (props) {
 		super(props)
@@ -54,7 +57,7 @@ class ProjectListItem extends React.Component {
 
 	render () {
 		return (
-			<div style={styles.main}>
+			<RadiumLink to={this.props.title} style={styles.main}>
 				<img style={styles.img} src={this.props.img}/>
 				<div style={styles.textContainer}>
 					<h2 style={styles.text}>
@@ -64,7 +67,7 @@ class ProjectListItem extends React.Component {
 						{this.props.subtitle}
 					</h4>
 				</div>
-			</div>
+			</RadiumLink>
 		)
 	}
 }

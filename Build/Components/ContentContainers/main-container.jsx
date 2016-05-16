@@ -16,14 +16,6 @@ var styling = {
 	}
 }
 
-/*var MainContainer = () => {
-	return (
-		<div style={styling}>
-			{this.props.children}
-		</div>
-	)
-}*/
-
 class MainContainer extends React.Component {
 	render () {
 		return (
