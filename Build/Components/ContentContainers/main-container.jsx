@@ -1,5 +1,6 @@
 import React from 'react'
 import Radium from 'radium'
+import {Route} from 'react-router'
 import BlogContainer from './BlogContainers/blog-container.jsx'
 import ProjectContainer from './ProjectContainers/project-container.jsx'
 
@@ -11,17 +12,26 @@ var styling = {
 	overflow: "scroll",
 	height: "100vh",
 	"@media (max-width: 850px)": {
-		padding: "0"
+		padding: "2em 0"
 	}
 }
 
-var MainContainer = () => {
+/*var MainContainer = () => {
 	return (
 		<div style={styling}>
-			{/*<BlogContainer/>*/}
-			<ProjectContainer/>
+			{this.props.children}
 		</div>
 	)
+}*/
+
+class MainContainer extends React.Component {
+	render () {
+		return (
+			<div style={styling}>
+				{this.props.children}
+			</div>
+		)
+	}
 }
 
 export default Radium(MainContainer);

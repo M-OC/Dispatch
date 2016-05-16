@@ -1,6 +1,7 @@
 import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {changeUrl} from '../../Store/Actions/navigation-actions.js'
 
 var styles = {
@@ -12,16 +13,11 @@ class NavBarIcon extends React.Component {
 		super(props)
 	}
 
-	static defaultProps = {
-		currentUrl: '/blog'
-	}
-
 	render(){
 		return (
-			<div style={styles} onClick={ () => this.props.ChangeUrl(this.props.label)}>
+			<Link to={this.props.label} style={styles}>
 				{this.props.label}
-				<p>Current: {this.props.currentUrl}</p>
-			</div>	
+			</Link>	
 		)
 	}
 }

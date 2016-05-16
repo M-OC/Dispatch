@@ -1,11 +1,11 @@
 body {
-	padding: 0em 8em;
+	padding: 0 8em;
   background-color: #eef;
 }
 
 @media (max-width: 850px) {
 	body {
-		padding: 2em;	
+		padding: 0 2em;	
 	}
 }
 

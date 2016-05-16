@@ -7,7 +7,7 @@ export default class Root extends React.Component {
 		return (
 			<div>
 				<NavBar/>
-				<MainContainer/>
+				{this.props.children}
 			</div>
 		)
 	}
