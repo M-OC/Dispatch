@@ -5,7 +5,9 @@ const target = process.env.npm_lifecycle_event;
 
 const endpoints = {
 	client: path.join(__dirname, 'Client'),
-	build: path.join(__dirname, 'Build')
+	build: path.join(__dirname, 'Build'),
+	projectBuild: path.join(__dirname, 'Projects/Build'),
+	projectClient: path.join(__dirname, 'Projects/Client')
 };
 
 const common = {
@@ -32,7 +34,31 @@ const common = {
 	}
 };
 
-if (target === 'start' || !target) {
+const projects = {
+	entry: {
+		projects: endpoints.projectBuild
+	},
+	resolve: {
+		extensions: ['', '.js', '.jsx']
+	},
+	output: {
+		path: endpoints.projectClient,
+		filename: 'projects.js'
+	},
+	module: {
+		loaders: [{
+			test: /\.css$/,
+			loaders: ['style','css']
+		},
+		{
+			test: /\.jsx?$/,
+			loaders: ['babel?cacheDirectory'],
+			include: endpoints.projectBuild
+		}]
+	}
+};
+
+if (target === 'start') {
   module.exports = merge(common, {
   	devServer: {
   		contentBase: endpoints.client,
@@ -46,8 +72,6 @@ if (target === 'start' || !target) {
   	},
   	plugins: [new webpack.HotModuleReplacementPlugin()]
   });
-}
-
-if (target === 'build') {
-  module.exports = merge(common, {});
+} else {
+  module.exports = [common, projects];//merge(common, projects);
 }
