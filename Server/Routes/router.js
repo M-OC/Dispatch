@@ -8,7 +8,7 @@ var ComponentList = require('../../Projects/Client/projects.js').default;
 module.exports = function (app, express) {
   app.get('/Projects/:project', function (req, res) {
   	var Component = ComponentList[req.params.project] || res.sendStatus(404);
-  	var response = ReactDomServer.renderToString(<Component/>);
+  	var response = ReactDomServer.renderToString(Component);
   	res.send(response);
 
   });
