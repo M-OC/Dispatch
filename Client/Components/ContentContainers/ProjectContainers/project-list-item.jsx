@@ -57,7 +57,7 @@ class ProjectListItem extends React.Component {
 
 	render () {
 		return (
-			<RadiumLink to={this.props.title} style={styles.main}>
+			<RadiumLink to={'/Projects/' + this.props.title} style={styles.main}>
 				<img style={styles.img} src={this.props.img}/>
 				<div style={styles.textContainer}>
 					<h2 style={styles.text}>

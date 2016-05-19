@@ -88,6 +88,10 @@
 
 	var _projectList2 = _interopRequireDefault(_projectList);
 
+	var _project = __webpack_require__(328);
+
+	var _project2 = _interopRequireDefault(_project);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -110,7 +114,8 @@
 						_react2.default.createElement(
 							_reactRouter.Route,
 							{ path: 'Projects', component: _projectContainer2.default },
-							_react2.default.createElement(_reactRouter.IndexRoute, { component: _projectList2.default })
+							_react2.default.createElement(_reactRouter.IndexRoute, { component: _projectList2.default }),
+							_react2.default.createElement(_reactRouter.Route, { path: ':project', component: _project2.default })
 						)
 					)
 				)
@@ -48102,7 +48107,7 @@
 
 	var ProjectEntries = [{
 		id: 'zzb',
-		title: 'A fake title1',
+		title: 'server-side-component',
 		subtitle: 'PROJECT A fake subtitle containing text that might be a little more descriptive.',
 		img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 	}, {
@@ -48236,7 +48241,7 @@
 			value: function render() {
 				return _react2.default.createElement(
 					RadiumLink,
-					{ to: this.props.title, style: styles.main },
+					{ to: '/Projects/' + this.props.title, style: styles.main },
 					_react2.default.createElement('img', { style: styles.img, src: this.props.img }),
 					_react2.default.createElement(
 						'div',
@@ -48260,6 +48265,59 @@
 	}(_react2.default.Component);
 
 	exports.default = (0, _radium2.default)(ProjectListItem);
+
+/***/ },
+/* 328 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(7);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Project = function (_React$Component) {
+		_inherits(Project, _React$Component);
+
+		function Project() {
+			_classCallCheck(this, Project);
+
+			return _possibleConstructorReturn(this, Object.getPrototypeOf(Project).apply(this, arguments));
+		}
+
+		_createClass(Project, [{
+			key: 'componentWillRecieveProps',
+			value: function componentWillRecieveProps() {}
+		}, {
+			key: 'render',
+			value: function render() {
+				return _react2.default.createElement(
+					'div',
+					null,
+					this.props.params.project
+				);
+			}
+		}]);
+
+		return Project;
+	}(_react2.default.Component);
+
+	exports.default = Project;
 
 /***/ }
 /******/ ]);

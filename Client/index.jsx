@@ -11,6 +11,9 @@ import MainContainer from './Components/ContentContainers/main-container.jsx'
 import BlogContainer from './Components/ContentContainers/BlogContainers/blog-container.jsx'
 import ProjectContainer from './Components/ContentContainers/ProjectContainers/project-container.jsx'
 import ProjectList from './Components/ContentContainers/ProjectContainers/project-list.jsx'
+import Project from './Components/ContentContainers/ProjectContainers/project.jsx'
+
+
 
 ReactDOM.render(
 	<Provider store={Store}>
@@ -24,6 +27,7 @@ ReactDOM.render(
 						</Route>
 						<Route path='Projects' component={ProjectContainer}>
 							<IndexRoute component={ProjectList}/>
+							<Route path=':project' component={Project}/>
 						</Route>
 					</Route>
 				</Route>

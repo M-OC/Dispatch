@@ -4,7 +4,7 @@ import {map} from 'lodash'
 
 const ProjectEntries = [{
 	id: 'zzb',
-	title: 'A fake title1',
+	title: 'server-side-component',
 	subtitle: 'PROJECT A fake subtitle containing text that might be a little more descriptive.',
 	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 },{
