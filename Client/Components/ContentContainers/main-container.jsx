@@ -4,6 +4,7 @@ import {Route} from 'react-router'
 import BlogContainer from './BlogContainers/blog-container.jsx'
 import ProjectContainer from './ProjectContainers/project-container.jsx'
 
+
 var styling = {
 	backgroundColor: "white",
 	padding: "2em",
@@ -16,6 +17,7 @@ var styling = {
 	}
 }
 
+
 class MainContainer extends React.Component {
 	render () {
 		return (
@@ -25,5 +27,6 @@ class MainContainer extends React.Component {
 		)
 	}
 }
+
 
 export default Radium(MainContainer);

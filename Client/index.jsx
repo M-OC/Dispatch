@@ -14,7 +14,6 @@ import ProjectList from './Components/ContentContainers/ProjectContainers/projec
 import Project from './Components/ContentContainers/ProjectContainers/project.jsx'
 
 
-
 ReactDOM.render(
 	<Provider store={Store}>
 		<StyleRoot>

@@ -3,7 +3,6 @@ import React from 'react'
 import path from 'path'
 
 
-
 const factories = Object.keys(projects).reduce(function (factoryObject, component, index) {
 	factoryObject[component] = React.createFactory(projects[component]);
 	return factoryObject;
@@ -13,7 +12,6 @@ const initialState = Object.keys(initialValues).reduce(function (values, compone
 	values[index] = initialValues[index] || {};
 	return values;
 }, {});
-
 
 
 module.exports = function (app, express) {

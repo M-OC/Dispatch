@@ -1,7 +1,6 @@
 import ServerSideComponent from './server-side-component.js'
 
 
-
 export const projects = {
 	'server-side-component': ServerSideComponent
 }

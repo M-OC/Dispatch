@@ -27,6 +27,7 @@ var styles = {
 	backgroundColor: "#fbfbfb"
 }
 
+
 export default class BlogContainer extends React.Component {
 	render () {
 		return (

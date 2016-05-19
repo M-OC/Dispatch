@@ -1,6 +1,7 @@
 import React from 'react'
 import Radium from 'radium'
 
+
 var styles = {
 	main: {
 		margin: "1em 1em",
@@ -46,6 +47,7 @@ var styles = {
 	}
 }
 
+
 class BlogListItem extends React.Component {
 	constructor (props) {
 		super(props)
@@ -70,6 +72,7 @@ class BlogListItem extends React.Component {
 		)
 	}
 }
+
 
 export default Radium(BlogListItem);
 

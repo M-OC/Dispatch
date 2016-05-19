@@ -4,9 +4,11 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {changeUrl} from '../../Store/Actions/navigation-actions.js'
 
+
 var styles = {
 	display: "inline-block"
 }
+
 
 class NavBarIcon extends React.Component {
 	constructor (props) {
@@ -22,6 +24,7 @@ class NavBarIcon extends React.Component {
 	}
 }
 
+
 const mapStateToProps = function (state) {
 	return {
 		currentUrl: state.Navigation.url
@@ -33,5 +36,6 @@ const mapDispatchToProps = function (dispatch) {
 		ChangeUrl: bindActionCreators(changeUrl, dispatch)
 	}
 }
+
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBarIcon);

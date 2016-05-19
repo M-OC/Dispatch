@@ -1,6 +1,8 @@
 import React from 'react'
 import Radium from 'radium'
 import {Link} from 'react-router'
+var RadiumLink = Radium(Link);
+
 
 var styles = {
 	main: {
@@ -48,7 +50,6 @@ var styles = {
 	}
 }
 
-var RadiumLink = Radium(Link);
 
 class ProjectListItem extends React.Component {
 	constructor (props) {
@@ -71,5 +72,6 @@ class ProjectListItem extends React.Component {
 		)
 	}
 }
+
 
 export default Radium(ProjectListItem);
