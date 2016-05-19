@@ -1,4 +1,4 @@
-import ServerSideComponent from './server-side-component.jsx'
+import ServerSideComponent from './server-side-component.js'
 
 var projects = {
 	'server-side-component': ServerSideComponent

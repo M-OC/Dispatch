@@ -7,8 +7,9 @@ const target = process.env.npm_lifecycle_event;
 const endpoints = {
 	client: path.join(__dirname, 'Client'),
 	clientBuild: path.join(__dirname, 'Build/ClientBundle'),
-	server: path.join(__dirname, 'Server/server.js'),
-	serverBuild: path.join(__dirname, 'Build/ServerBundle')
+	server: path.join(__dirname, 'Server'),
+	serverBuild: path.join(__dirname, 'Build/ServerBundle'),
+	projects: path.join(__dirname, '/Projects')
 };
 
 const client = {
@@ -30,14 +31,14 @@ const client = {
 		{
 			test: /\.jsx?$/,
 			loaders: ['babel?cacheDirectory'],
-			include: endpoints.client
+			include: [endpoints.client]
 		}]
 	}
 };
 
 const server = {
 	entry: {
-		projects: endpoints.server
+		projects: endpoints.server + '/server.js'
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx']
@@ -46,14 +47,12 @@ const server = {
 		__dirname: false
 	},
 	output: {
-		//library: 'server',
-		//libraryTarget: 'node',
 		target: 'node',
 		path: endpoints.serverBuild,
 		filename: 'server.js'
 	},
   externals: fs.readdirSync(path.resolve(__dirname, 'node_modules')).concat([
-    'react-dom/server', 'react'
+    'react-dom', 'react'
   ]).reduce(function (ext, mod) {
     ext[mod] = 'commonjs ' + mod
     return ext
@@ -66,7 +65,7 @@ const server = {
 		{
 			test: /\.js?$/,
 			loaders: ['babel?cacheDirectory'],
-			include: endpoints.server
+			include: [endpoints.server, endpoints.projects]
 		}]
 	}
 };
