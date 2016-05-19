@@ -1,10 +1,15 @@
-module.exports = function (app, express) {
-  app.get('/hey', function (req, res) {
-  	console.log("HEYOOOO!");
-  	res.send();
-  });
+var ReactDomServer = require('react-dom/server');
+var ReactRouter = require('react-router');
+var React = require('react');
 
-  // app.get('/user', /*AUTHENTICATE*/, function (req, res) {
-  //   res.send();
-  // });
+var ComponentList = require('../../Projects/Client/projects.js').default;
+
+
+module.exports = function (app, express) {
+  app.get('/Projects/:project', function (req, res) {
+  	var Component = ComponentList[req.params.project] || res.sendStatus(404);
+  	var response = ReactDomServer.renderToString(<Component/>);
+  	res.send(response);
+
+  });
 }

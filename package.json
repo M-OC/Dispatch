@@ -5,7 +5,8 @@
   "main": "server.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "babel": "babel-node Server/server.js"
   },
   "author": "Max O'Connell",
   "license": "ISC",
@@ -21,6 +22,7 @@
     "redux": "^3.5.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.9.0",
     "babel-core": "^6.7.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-array-includes": "^2.0.3",

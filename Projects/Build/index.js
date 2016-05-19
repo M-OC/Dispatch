@@ -1,8 +1,7 @@
-import {test} from 'test.jsx'
+import ServerSideComponent from './server-side-component.jsx'
 
 var projects = {
-	Test: test
+	'server-side-component': ServerSideComponent
 }
-
 
 export default projects

@@ -42,8 +42,13 @@ const projects = {
 		extensions: ['', '.js', '.jsx']
 	},
 	output: {
+		library: 'projects',
+		libraryTarget: 'umd',
 		path: endpoints.projectClient,
 		filename: 'projects.js'
+	},
+	externals: {
+		React: 'react'
 	},
 	module: {
 		loaders: [{
