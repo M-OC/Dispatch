@@ -1,9 +1,5 @@
 import React from 'react'
-
-
-var styles = {
-	backgroundColor: "#fbfbfb"
-}
+import {projectContainer as styles} from '../../component-styles.js'
 
 
 export default class ProjectContainer extends React.Component {

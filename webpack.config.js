@@ -63,7 +63,7 @@ const server = {
 			loaders: ['style','css']
 		},
 		{
-			test: /\.js?$/,
+			test: /\.jsx?$/,
 			loaders: ['babel?cacheDirectory'],
 			include: [endpoints.server, endpoints.projects]
 		}]

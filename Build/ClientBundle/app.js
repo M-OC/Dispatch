@@ -72,23 +72,23 @@
 
 	var _root2 = _interopRequireDefault(_root);
 
-	var _mainContainer = __webpack_require__(322);
+	var _mainContainer = __webpack_require__(321);
 
 	var _mainContainer2 = _interopRequireDefault(_mainContainer);
 
-	var _blogContainer = __webpack_require__(323);
+	var _blogContainer = __webpack_require__(322);
 
 	var _blogContainer2 = _interopRequireDefault(_blogContainer);
 
-	var _projectContainer = __webpack_require__(325);
+	var _projectContainer = __webpack_require__(324);
 
 	var _projectContainer2 = _interopRequireDefault(_projectContainer);
 
-	var _projectList = __webpack_require__(326);
+	var _projectList = __webpack_require__(325);
 
 	var _projectList2 = _interopRequireDefault(_projectList);
 
-	var _project = __webpack_require__(328);
+	var _project = __webpack_require__(327);
 
 	var _project2 = _interopRequireDefault(_project);
 
@@ -47579,7 +47579,7 @@
 
 	var _navBar2 = _interopRequireDefault(_navBar);
 
-	var _mainContainer = __webpack_require__(322);
+	var _mainContainer = __webpack_require__(321);
 
 	var _mainContainer2 = _interopRequireDefault(_mainContainer);
 
@@ -47637,14 +47637,18 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+	// import {navBar as styling} from './../component-styles.js'
+
+	// console.log("narBar = ", navBar);
+
 	var styling = {
-		backgroundColor: "#8cf",
+		backgroundColor: "#08334f",
 		display: "flex",
 		flexWrap: "wrap",
 		justifyContent: "space-around",
 		fontFamily: "sans-serif",
 		fontSize: "1.5em",
-		padding: "1em 0"
+		alignItems: "stretch"
 	};
 
 	exports.default = function () {
@@ -47673,13 +47677,17 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _radium = __webpack_require__(253);
+
+	var _radium2 = _interopRequireDefault(_radium);
+
 	var _redux = __webpack_require__(179);
 
 	var _reactRedux = __webpack_require__(172);
 
 	var _reactRouter = __webpack_require__(194);
 
-	var _navigationActions = __webpack_require__(321);
+	var _navigationActions = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../Store/Actions/navigation-actions.jsx\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -47689,8 +47697,18 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+	var RadiumLink = (0, _radium2.default)(_reactRouter.Link);
+
 	var styles = {
-		display: "inline-block"
+		display: "inline-block",
+		padding: "1.5rem",
+		textAlign: "center",
+		textDecoration: "none",
+		color: "white",
+		flexGrow: 1,
+		":hover": {
+			backgroundColor: "#1a6b9f"
+		}
 	};
 
 	var NavBarIcon = function (_React$Component) {
@@ -47706,7 +47724,7 @@
 			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					_reactRouter.Link,
+					RadiumLink,
 					{ to: this.props.label, style: styles },
 					this.props.label
 				);
@@ -47732,22 +47750,6 @@
 
 /***/ },
 /* 321 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-		value: true
-	});
-	var changeUrl = exports.changeUrl = function changeUrl(url) {
-		return {
-			type: "MAIN_NAV",
-			url: url
-		};
-	};
-
-/***/ },
-/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47768,11 +47770,11 @@
 
 	var _reactRouter = __webpack_require__(194);
 
-	var _blogContainer = __webpack_require__(323);
+	var _blogContainer = __webpack_require__(322);
 
 	var _blogContainer2 = _interopRequireDefault(_blogContainer);
 
-	var _projectContainer = __webpack_require__(325);
+	var _projectContainer = __webpack_require__(324);
 
 	var _projectContainer2 = _interopRequireDefault(_projectContainer);
 
@@ -47822,7 +47824,7 @@
 	exports.default = (0, _radium2.default)(MainContainer);
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -47838,7 +47840,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _blogListItem = __webpack_require__(324);
+	var _blogListItem = __webpack_require__(323);
 
 	var _blogListItem2 = _interopRequireDefault(_blogListItem);
 
@@ -47904,7 +47906,7 @@
 	exports.default = BlogContainer;
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48021,7 +48023,7 @@
 	exports.default = (0, _radium2.default)(BlogListItem);
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -48075,7 +48077,7 @@
 	exports.default = ProjectContainer;
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48091,7 +48093,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _projectListItem = __webpack_require__(327);
+	var _projectListItem = __webpack_require__(326);
 
 	var _projectListItem2 = _interopRequireDefault(_projectListItem);
 
@@ -48150,7 +48152,7 @@
 	exports.default = ProjectList;
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48178,6 +48180,8 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var RadiumLink = (0, _radium2.default)(_reactRouter.Link);
 
 	var styles = {
 		main: {
@@ -48225,8 +48229,6 @@
 		}
 	};
 
-	var RadiumLink = (0, _radium2.default)(_reactRouter.Link);
-
 	var ProjectListItem = function (_React$Component) {
 		_inherits(ProjectListItem, _React$Component);
 
@@ -48267,7 +48269,7 @@
 	exports.default = (0, _radium2.default)(ProjectListItem);
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -48301,8 +48303,8 @@
 		}
 
 		_createClass(Project, [{
-			key: 'componentWillRecieveProps',
-			value: function componentWillRecieveProps() {}
+			key: 'componentWillReceiveProps',
+			value: function componentWillReceiveProps() {}
 		}, {
 			key: 'render',
 			value: function render() {

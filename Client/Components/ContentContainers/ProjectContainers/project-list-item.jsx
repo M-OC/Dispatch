@@ -1,54 +1,8 @@
 import React from 'react'
 import Radium from 'radium'
 import {Link} from 'react-router'
+import {projectListItem as styles} from '../../component-styles.js'
 var RadiumLink = Radium(Link);
-
-
-var styles = {
-	main: {
-		margin: "1em 1em",
-		padding: "0, 2em",
-		backgroundColor: "#8cf",
-		display: "flex",
-		flexDirection: "row",
-		flexWrap: "wrap",
-		alignItems: "center",
-		justifyContent: "space-between",
-		alignContent: "space-between",
-
-		":hover": {
-			backgroundColor: "#bef"
-		},
-
-		"@media (max-width: 850px)": {
-			padding: ".25em 2em",
-			flexDirection: "column",
-			margin: ".5em 0"
-		}
-	},
-	textContainer: {
-		textAlign: "center",
-		flex: "2 1",
-		margin: "0 1.5em",
-		"@media (max-width: 850px)": {
-			margin: "auto"
-		}
-	},
-	text: {
-		//margin: ".5em 0"
-	},
-	date: {
-		margin: ".25em 0em",
-		fontWeight: "bold"
-	},
-	img: {
-		maxWidth: "12em",
-		height: "auto",
-		"@media (max-width: 850px)": {
-			display: "none"
-		}
-	}
-}
 
 
 class ProjectListItem extends React.Component {

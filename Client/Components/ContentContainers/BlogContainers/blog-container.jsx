@@ -1,6 +1,7 @@
 import React from 'react'
 import BlogListItem from './blog-list-item.jsx'
 import {map} from 'lodash'
+import {blogContainer as styles} from '../../component-styles.js'
 
 
 const blogEntries = [{
@@ -22,10 +23,6 @@ const blogEntries = [{
 	date: '10/20/3000',
 	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 }];
-
-var styles = {
-	backgroundColor: "#fbfbfb"
-}
 
 
 export default class BlogContainer extends React.Component {

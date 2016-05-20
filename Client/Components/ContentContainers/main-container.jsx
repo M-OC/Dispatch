@@ -3,25 +3,13 @@ import Radium from 'radium'
 import {Route} from 'react-router'
 import BlogContainer from './BlogContainers/blog-container.jsx'
 import ProjectContainer from './ProjectContainers/project-container.jsx'
-
-
-var styling = {
-	backgroundColor: "white",
-	padding: "2em",
-	display: "flex",
-	flexDirection: "column",
-	overflow: "scroll",
-	height: "100vh",
-	"@media (max-width: 850px)": {
-		padding: "2em 0"
-	}
-}
+import {mainContainer as styles} from '../component-styles.js'
 
 
 class MainContainer extends React.Component {
 	render () {
 		return (
-			<div style={styling}>
+			<div style={styles}>
 				{this.props.children}
 			</div>
 		)
