@@ -22,7 +22,13 @@ const blogEntries = [{
 	subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
 	date: '10/20/3000',
 	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
-}];
+},{
+	id: 'dd',
+	title: 'A fake title3',
+	subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
+	date: '10/20/3000',
+	img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
+},];
 
 
 export default class BlogContainer extends React.Component {

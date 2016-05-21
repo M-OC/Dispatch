@@ -35,4 +35,5 @@ const mapDispatchToProps = function (dispatch) {
 	}
 }
 
+
 export default connect(mapStateToProps, mapDispatchToProps)(NavBarIcon);

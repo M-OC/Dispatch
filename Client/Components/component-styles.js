@@ -21,12 +21,12 @@ export var navBarIcon = {
 }
 
 export var mainContainer = {
-	backgroundColor: "white",
+	//backgroundColor: "white",
 	padding: "2em",
 	display: "flex",
 	flexDirection: "column",
 	overflow: "scroll",
-	height: "100vh",
+	height: "100%",
 	"@media (max-width: 850px)": {
 		padding: "2em 0"
 	}
@@ -94,6 +94,7 @@ export var projectListItem = {
 		flexDirection: "row",
 		flexWrap: "wrap",
 		alignItems: "center",
+		textDecoration: "none",
 		justifyContent: "space-between",
 		alignContent: "space-between",
 

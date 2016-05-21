@@ -1,11 +1,16 @@
+html {
+	height: 100%;
+}
+
 body {
 	padding: 0 8em;
   background-color: #eef;
+  height: 100%;
 }
 
 @media (max-width: 850px) {
 	body {
-		padding: 0 2em;	
+		padding: 0 2em;
 	}
 }
 
