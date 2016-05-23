@@ -4,6 +4,10 @@ import React from 'react'
 
 module.exports = function (app, express) {
   app.get('/Projects/:project', function (req, res) {
-  	res.send(renderToString(res.component));
+  	if (res.html !== null) {
+	  	res.send(res.html);
+  	} else {
+  		res.sendStatus(404);
+  	}
   });
 }

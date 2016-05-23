@@ -1,4 +1,6 @@
 import {projects, initialValues} from '../../Projects'
+import {renderToString} from 'react-dom/server'
+import template from 'static-template.js'
 import React from 'react'
 import path from 'path'
 
@@ -17,9 +19,16 @@ const initialState = Object.keys(initialValues).reduce(function (values, compone
 module.exports = function (app, express) {
 	app.use('/Projects/:project', function(req, res, next) {
 		var selection = req.params.project;
-		res.component = factories[selection](initialState[selection]) || null;
+		var component = factories[selection](initialState[selection]) || null;
+		if (component) {
+			res.html = template(renderToString(component), req.params.project, initialState[selection]);
+		} else {
+			res.html = null;
+		}
 		next();
 	});
+
+	app.use('/Components', express.static(path.join(__dirname, '../../Build/IsomorphicComponents')));
 
   app.use('/', express.static(path.join(__dirname, '../../Build/ClientBundle')));
 };
