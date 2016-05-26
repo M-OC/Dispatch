@@ -3,7 +3,7 @@ import ProjectListItem from './project-list-item.jsx'
 import {map} from 'lodash'
 
 
-const ProjectEntries = [{
+export const ProjectEntries = [{
 	id: 'zzb',
 	title: 'server-side-component',
 	subtitle: 'PROJECT A fake subtitle containing text that might be a little more descriptive.',

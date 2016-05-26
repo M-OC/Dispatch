@@ -1,6 +1,6 @@
 import {projects, initialValues} from '../../Projects'
-import {renderToString} from 'react-dom/server'
-import template from 'static-template.js'
+import {renderToString, renderToStaticMarkup} from 'react-dom/server'
+import {template} from './static-template.js'
 import React from 'react'
 import path from 'path'
 
@@ -21,7 +21,7 @@ module.exports = function (app, express) {
 		var selection = req.params.project;
 		var component = factories[selection](initialState[selection]) || null;
 		if (component) {
-			res.html = template(renderToString(component), req.params.project, initialState[selection]);
+			res.html = template(renderToStaticMarkup(component), req.params.project, initialState[selection]);
 		} else {
 			res.html = null;
 		}

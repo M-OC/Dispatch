@@ -7,6 +7,8 @@ export default class ServerSideComponent extends React.Component {
 			<div>
 				<p>
 					A react component rendered on the server.
+					Foo is: {this.props.foo},
+					Bar is: {this.props.bar}
 				</p>
 			</div>
 		)

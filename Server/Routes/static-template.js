@@ -1,11 +1,5 @@
-export default function (html, componentName, initialState) {
+export const template = function (html, componentName, initialState) {
 	return (
-		'<div>
-			${html}
-			<script>
-				window.${componentName.replace(/-/g, '_')}__initial_state__ = ${initialState};
-			</script>
-			<script src="/Components/${componentName}"></script>
-		</div>'
+		`${html}<script>window.${componentName.replace(/-/g, "_")}__initial_state__ = ${initialState};</script><script src="/Components/${componentName}.js"></script>`
 	)
 }

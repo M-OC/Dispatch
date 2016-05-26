@@ -5,7 +5,8 @@ import React from 'react'
 module.exports = function (app, express) {
   app.get('/Projects/:project', function (req, res) {
   	if (res.html !== null) {
-	  	res.send(res.html);
+  		res.setHeader('Content-Type', 'text/html')
+	  	res.end(res.html);
   	} else {
   		res.sendStatus(404);
   	}

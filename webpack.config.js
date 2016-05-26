@@ -9,7 +9,8 @@ const endpoints = {
 	clientBuild: path.join(__dirname, 'Build/ClientBundle'),
 	server: path.join(__dirname, 'Server'),
 	serverBuild: path.join(__dirname, 'Build/ServerBundle'),
-	projects: path.join(__dirname, '/Projects')
+	projects: path.join(__dirname, '/Projects'),
+	componentBuild: path.join(__dirname, 'Build/IsomorphicComponents')
 };
 
 const client = {
@@ -35,6 +36,27 @@ const client = {
 		}]
 	}
 };
+
+const components = {
+	entry: {
+		"server-side-component.js": endpoints.projects + '/server-side-component.js'
+	},
+	output: {
+		path: endpoints.componentBuild,
+		filename: "[name]"
+	},
+	externals: fs.readdirSync(path.resolve(__dirname, 'node_modules')).concat([
+  ]).reduce(function (ext, mod) {
+    ext[mod] = 'commonjs ' + mod
+    return ext
+  }, {}),
+  module: {
+  	loaders: [{
+  		test: /\.jsx?$/,
+			loaders: ['babel?cacheDirectory']
+  	}]
+  }
+}
 
 const server = {
 	entry: {
@@ -85,5 +107,5 @@ if (target === 'start') {
   	plugins: [new webpack.HotModuleReplacementPlugin()]
   });
 } else {
-  module.exports = [client, server];
+  module.exports = [client, server, components];
 }

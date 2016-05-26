@@ -92,6 +92,8 @@
 
 	var _project2 = _interopRequireDefault(_project);
 
+	var _lodash = __webpack_require__(316);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	_reactDom2.default.render(_react2.default.createElement(
@@ -115,7 +117,16 @@
 							_reactRouter.Route,
 							{ path: 'Projects', component: _projectContainer2.default },
 							_react2.default.createElement(_reactRouter.IndexRoute, { component: _projectList2.default }),
-							_react2.default.createElement(_reactRouter.Route, { path: ':project', component: _project2.default })
+							(0, _lodash.map)(_projectList.ProjectEntries, function (proj) {
+								return _react2.default.createElement(_reactRouter.Route, { key: proj.id, path: proj.title, getComponent: function getComponent(location, callback) {
+										fetch('http://localhost:8000/Projects/' + proj.title).then(function (response) {
+											return response.text();
+										}).then(function (html) {
+											var component = _react2.default.createElement(html);
+											callback(null, component);
+										}).catch(callback);
+									} });
+							})
 						)
 					)
 				)
@@ -508,7 +519,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n\tpadding: 0 8em;\n  background-color: #eef;\n}\n\n@media (max-width: 850px) {\n\tbody {\n\t\tpadding: 0 2em;\n\t}\n}\n\n@media (max-width: 600px) {\n\tbody {\n\t\tpadding: 0;\n\t}\n}", ""]);
+	exports.push([module.id, "html {\n\theight: 100%;\n}\n\nbody {\n\tpadding: 0 8em;\n  background-color: #eef;\n  height: 100%;\n}\n\n@media (max-width: 850px) {\n\tbody {\n\t\tpadding: 0 2em;\n\t}\n}\n\n@media (max-width: 600px) {\n\tbody {\n\t\tpadding: 0;\n\t}\n}\n", ""]);
 
 	// exports
 
@@ -47774,7 +47785,7 @@
 	};
 
 	var mainContainer = exports.mainContainer = {
-		backgroundColor: "white",
+		//backgroundColor: "white",
 		padding: "2em",
 		display: "flex",
 		flexDirection: "column",
@@ -48001,6 +48012,12 @@
 		subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
 		date: '10/20/3000',
 		img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
+	}, {
+		id: 'dd',
+		title: 'A fake title3',
+		subtitle: 'A fake subtitle containing text that might be a little more descriptive.',
+		date: '10/20/3000',
+		img: 'https://upload.wikimedia.org/wikipedia/commons/2/24/Gorilla_gorilla11.jpg'
 	}];
 
 	var BlogContainer = function (_React$Component) {
@@ -48165,7 +48182,7 @@
 	Object.defineProperty(exports, "__esModule", {
 		value: true
 	});
-	exports.default = undefined;
+	exports.default = exports.ProjectEntries = undefined;
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -48187,7 +48204,7 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ProjectEntries = [{
+	var ProjectEntries = exports.ProjectEntries = [{
 		id: 'zzb',
 		title: 'server-side-component',
 		subtitle: 'PROJECT A fake subtitle containing text that might be a little more descriptive.',
@@ -48339,16 +48356,25 @@
 		}
 
 		_createClass(Project, [{
-			key: 'componentWillReceiveProps',
-			value: function componentWillReceiveProps() {}
+			key: 'getInitialState',
+			value: function getInitialState() {
+				return {
+					html: 'loading...' + this.props.params.projectName
+				};
+			}
+		}, {
+			key: 'componentWillMount',
+			value: function componentWillMount() {
+				fetch('https://localhost:8000/Projects/' + this.props.params.projectName).then(function (response) {
+					this.setState({ html: response });
+				}).catch(function (error) {
+					this.setState({ html: 'error loading project' });
+				});
+			}
 		}, {
 			key: 'render',
 			value: function render() {
-				return _react2.default.createElement(
-					'div',
-					null,
-					this.props.params.project
-				);
+				return _react2.default.createElement('div', { dangrouslySetInnerHTML: this.state.html });
 			}
 		}]);
 

@@ -12,6 +12,8 @@ import BlogContainer from './Components/ContentContainers/BlogContainers/blog-co
 import ProjectContainer from './Components/ContentContainers/ProjectContainers/project-container.jsx'
 import ProjectList from './Components/ContentContainers/ProjectContainers/project-list.jsx'
 import Project from './Components/ContentContainers/ProjectContainers/project.jsx'
+import {ProjectEntries} from './Components/ContentContainers/ProjectContainers/project-list.jsx'
+import {map} from 'lodash'
 
 
 ReactDOM.render(
@@ -26,7 +28,20 @@ ReactDOM.render(
 						</Route>
 						<Route path='Projects' component={ProjectContainer}>
 							<IndexRoute component={ProjectList}/>
-							<Route path=':project' component={Project}/>
+							{map(ProjectEntries, function (proj) {
+								return (
+									<Route key={proj.id} path={proj.title} getComponent={(location, callback) => {
+										fetch('http://localhost:8000/Projects/' + proj.title)
+										.then(function(response){
+											return response.text();
+										}).then(function(html){
+											var component = React.createElement(Project, {html: html, title: proj.title})
+											callback(null, component)
+										})
+										.catch(callback)
+									}}/>
+								)
+							})}
 						</Route>
 					</Route>
 				</Route>
